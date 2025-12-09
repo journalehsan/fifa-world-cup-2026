@@ -1,76 +1,94 @@
 {% extends "base.html" %}
 
-{% block title %}2026 World Cup – Format, Venues & More{% endblock %}
+{% block title %}2026 FIFA World Cup – Format, Venues & More{% endblock %}
+{% block description %}Comprehensive guide to the 2026 FIFA World Cup including tournament format, host cities & venues, branding, mascots, tickets, and controversies. Get detailed information about the expanded 48-team tournament across Canada, Mexico, and United States.{% endblock %}
 
 {% block content %}
 <div x-data="{ section: 'format' }" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12 space-y-8 lg:space-y-12">
 
   <!-- Header -->
-  <header class="space-y-3 lg:space-y-4">
-    <p class="text-xs lg:text-sm uppercase tracking-wide text-slate-500 dark:text-slate-400">Tournament details</p>
-    <h1 class="text-3xl lg:text-4xl xl:text-5xl font-bold text-slate-900 dark:text-white leading-tight">
-      2026 FIFA World Cup – Format, Venues & Off-pitch info
+  <header class="space-y-4 lg:space-y-6 mb-8 lg:mb-12">
+    <p class="text-sm lg:text-base uppercase tracking-wide text-slate-500 dark:text-slate-400 mb-2">Tournament details</p>
+    <h1 class="text-4xl lg:text-5xl xl:text-6xl font-bold text-slate-900 dark:text-white leading-tight mb-4 lg:mb-6">
+      2026 FIFA World Cup – Format, Venues & Off-pitch Information
     </h1>
-    <p class="text-sm lg:text-base text-slate-600 dark:text-slate-300 max-w-4xl leading-relaxed">
-      A deeper look at how the expanded 48-team World Cup works, where matches
-      will be played, and the branding, mascots, tickets and controversies
-      around the tournament.
-    </p>
+    <div class="text-base lg:text-lg text-slate-600 dark:text-slate-300 max-w-5xl leading-relaxed space-y-4 lg:space-y-6">
+      <p class="mb-4 lg:mb-6">
+        A comprehensive guide to the <strong>2026 FIFA World Cup</strong>, providing detailed information about the expanded 48-team tournament format, host cities and venues across Canada, Mexico, and the United States, official branding and mascots, ticket information, and reported controversies.
+      </p>
+      <p>
+        This page serves as a complete reference for football fans and researchers interested in understanding all aspects of the tournament, from the on-pitch format to the off-pitch details that make this World Cup unique.
+      </p>
+    </div>
   </header>
 
-  <!-- Tabs / Section nav -->
-  <nav class="border-b border-slate-200 dark:border-slate-700">
-    <ul class="flex flex-wrap gap-3 lg:gap-4 text-xs lg:text-sm font-medium">
-      <li>
-        <button @click="section = 'format'"
-                :class="section === 'format'
-                  ? 'border-b-2 border-blue-600 text-blue-700 dark:text-blue-400'
-                  : 'text-slate-500 dark:text-slate-400'"
-                class="pb-2 lg:pb-3 px-1 lg:px-2 transition-colors">
-          Format & expansion
-        </button>
-      </li>
-      <li>
-        <button @click="section = 'venues'"
-                :class="section === 'venues'
-                  ? 'border-b-2 border-blue-600 text-blue-700 dark:text-blue-400'
-                  : 'text-slate-500 dark:text-slate-400'"
-                class="pb-2 lg:pb-3 px-1 lg:px-2 transition-colors">
-          Host cities & venues
-        </button>
-      </li>
-      <li>
-        <button @click="section = 'branding'"
-                :class="section === 'branding'
-                  ? 'border-b-2 border-blue-600 text-blue-700 dark:text-blue-400'
-                  : 'text-slate-500 dark:text-slate-400'"
-                class="pb-2 lg:pb-3 px-1 lg:px-2 transition-colors">
-          Branding & mascots
-        </button>
-      </li>
-      <li>
-        <button @click="section = 'tickets'"
-                :class="section === 'tickets'
-                  ? 'border-b-2 border-blue-600 text-blue-700 dark:text-blue-400'
-                  : 'text-slate-500 dark:text-slate-400'"
-                class="pb-2 lg:pb-3 px-1 lg:px-2 transition-colors">
-          Tickets & merchandise
-        </button>
-      </li>
-      <li>
-        <button @click="section = 'controversies'"
-                :class="section === 'controversies'
-                  ? 'border-b-2 border-red-500 text-red-600 dark:text-red-400'
-                  : 'text-slate-500 dark:text-slate-400'"
-                class="pb-2 lg:pb-3 px-1 lg:px-2 transition-colors">
-          Controversies
-        </button>
-      </li>
+  <!-- Table of Contents -->
+  <div class="bg-slate-50 dark:bg-slate-800 rounded-xl p-6 lg:p-8 mb-8 lg:mb-12 shadow-sm dark:shadow-lg">
+    <h2 class="text-xl lg:text-2xl font-semibold text-slate-900 dark:text-white mb-4">Table of Contents</h2>
+    <ul class="grid md:grid-cols-2 gap-3 lg:gap-4 text-base lg:text-lg text-slate-700 dark:text-slate-300">
+      <li><a href="#format" @click="section = 'format'" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">📋 Tournament Format & Expansion</a></li>
+      <li><a href="#venues" @click="section = 'venues'" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">🏟️ Host Cities & Venues</a></li>
+      <li><a href="#branding" @click="section = 'branding'" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">🎨 Branding, Mascots & Match Ball</a></li>
+      <li><a href="#tickets" @click="section = 'tickets'" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">🎫 Tickets & Hospitality</a></li>
+      <li><a href="#controversies" @click="section = 'controversies'" class="hover:text-red-600 dark:hover:text-red-400 transition-colors">⚠️ Controversies & Concerns</a></li>
     </ul>
+  </div>
+
+  <!-- Tabs / Section nav -->
+  <nav class="sticky top-0 z-10 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700 shadow-md dark:shadow-lg">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ul class="flex flex-wrap gap-4 lg:gap-6 text-base lg:text-lg font-medium py-3">
+        <li>
+          <button @click="section = 'format'"
+                  :class="section === 'format'
+                    ? 'border-b-4 border-blue-600 text-blue-700 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400'"
+                  class="pb-3 px-4 lg:px-6 transition-all duration-200 rounded-t-lg">
+            📋 Format & expansion
+          </button>
+        </li>
+        <li>
+          <button @click="section = 'venues'"
+                  :class="section === 'venues'
+                    ? 'border-b-4 border-blue-600 text-blue-700 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400'"
+                  class="pb-3 px-4 lg:px-6 transition-all duration-200 rounded-t-lg">
+            🏟️ Host cities & venues
+          </button>
+        </li>
+        <li>
+          <button @click="section = 'branding'"
+                  :class="section === 'branding'
+                    ? 'border-b-4 border-blue-600 text-blue-700 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400'"
+                  class="pb-3 px-4 lg:px-6 transition-all duration-200 rounded-t-lg">
+            🎨 Branding & mascots
+          </button>
+        </li>
+        <li>
+          <button @click="section = 'tickets'"
+                  :class="section === 'tickets'
+                    ? 'border-b-4 border-blue-600 text-blue-700 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400'"
+                  class="pb-3 px-4 lg:px-6 transition-all duration-200 rounded-t-lg">
+            🎫 Tickets & merchandise
+          </button>
+        </li>
+        <li>
+          <button @click="section = 'controversies'"
+                  :class="section === 'controversies'
+                    ? 'border-b-4 border-red-500 text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400'"
+                  class="pb-3 px-4 lg:px-6 transition-all duration-200 rounded-t-lg">
+            ⚠️ Controversies
+          </button>
+        </li>
+      </ul>
+    </div>
   </nav>
 
   <!-- FORMAT -->
-  <section x-show="section === 'format'" x-cloak class="space-y-6">
+  <section id="format" x-show="section === 'format'" x-cloak class="space-y-8 lg:space-y-12 scroll-mt-20">
     <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
       <h2 class="text-xl font-semibold text-slate-900 mb-2">Format & expansion</h2>
       <p class="text-sm text-slate-700 leading-relaxed">
@@ -117,7 +135,7 @@
   </section>
 
   <!-- VENUES -->
-  <section x-show="section === 'venues'" x-cloak class="space-y-6">
+  <section id="venues" x-show="section === 'venues'" x-cloak class="space-y-8 lg:space-y-12 scroll-mt-20">
     <div class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 lg:p-8 shadow-sm dark:shadow-lg">
       <h2 class="text-xl lg:text-2xl font-semibold text-slate-900 dark:text-white mb-4">Host cities & venues</h2>
       <p class="text-sm lg:text-base text-slate-700 dark:text-slate-300">
@@ -171,7 +189,7 @@
   </section>
 
   <!-- BRANDING & MASCOTS -->
-  <section x-show="section === 'branding'" x-cloak class="space-y-6">
+  <section id="branding" x-show="section === 'branding'" x-cloak class="space-y-8 lg:space-y-12 scroll-mt-20">
     <div class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 lg:p-8 shadow-sm dark:shadow-lg">
       <h2 class="text-xl lg:text-2xl font-semibold text-slate-900 dark:text-white mb-4">Branding, mascots & match ball</h2>
       <p class="text-sm lg:text-base text-slate-700 dark:text-slate-300">
@@ -218,7 +236,7 @@
   </section>
 
   <!-- TICKETS -->
-  <section x-show="section === 'tickets'" x-cloak class="space-y-6">
+  <section id="tickets" x-show="section === 'tickets'" x-cloak class="space-y-8 lg:space-y-12 scroll-mt-20">
     <div class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 lg:p-8 shadow-sm dark:shadow-lg">
       <h2 class="text-xl lg:text-2xl font-semibold text-slate-900 dark:text-white mb-4">Tickets & hospitality</h2>
       <p class="text-sm lg:text-base text-slate-700 dark:text-slate-300">
@@ -243,7 +261,7 @@
   </section>
 
   <!-- CONTROVERSIES -->
-  <section x-show="section === 'controversies'" x-cloak class="space-y-6">
+  <section id="controversies" x-show="section === 'controversies'" x-cloak class="space-y-8 lg:space-y-12 scroll-mt-20">
     <div class="rounded-2xl border border-red-100 dark:border-red-900/30 bg-red-50 dark:bg-red-900/20 p-6 lg:p-8 shadow-sm dark:shadow-lg">
       <h2 class="text-xl lg:text-2xl font-semibold text-red-900 dark:text-red-300 mb-4">Controversies & concerns</h2>
       <p class="text-sm lg:text-base text-red-900 dark:text-red-300">
