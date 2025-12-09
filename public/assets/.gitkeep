@@ -1,2 +1,0 @@
-# This file ensures public/assets directory is tracked by git
-# even if it contains only ignored files
