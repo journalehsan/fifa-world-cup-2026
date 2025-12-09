@@ -4,8 +4,9 @@ use std::env;
 
 mod routes;
 mod templates;
+mod models;
 
-use routes::home;
+use routes::{home, tournament};
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
@@ -25,6 +26,9 @@ async fn main() -> std::io::Result<()> {
         App::new()
             // Home route - server-side rendered HTML
             .route("/", web::get().to(home::index))
+            // Tournament pages
+            .route("/tournament", web::get().to(tournament::tournament_page))
+            .route("/worldcup-2026-info", web::get().to(tournament::worldcup_info_page))
             // Static files (CSS, JS, images)
             .service(Files::new("/assets", "./public/assets").show_files_listing())
             // API routes (optional)
