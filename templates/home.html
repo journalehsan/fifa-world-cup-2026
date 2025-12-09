@@ -2,8 +2,113 @@
 
 {% block content %}
 <div class="container">
+    <!-- Featured Match Section -->
+    <section class="featured-match-section">
+        <div class="section-header">
+            <div class="section-title">
+                <h2><i class="fas fa-futbol"></i> Matches</h2>
+                <p>Presented by Official Partner</p>
+            </div>
+        </div>
+        <div class="match-tabs">
+            <button class="match-tab active">Final</button>
+            <button class="match-tab">Semi-Finals</button>
+            <button class="match-tab">Quarter-Finals</button>
+            <button class="match-tab">Round of 16</button>
+        </div>
+        <div class="match-card">
+            <div class="match-date">09 Jul 2006</div>
+            <div class="match-teams">
+                <div class="match-team">
+                    <img src="https://flagcdn.com/w40/it.png" alt="Italy">
+                    <span>ITA</span>
+                </div>
+                <div class="match-score">
+                    <span class="score">1:1</span>
+                    <span class="match-info">a.e.t (1:1, 1:1) 5:3 PSO</span>
+                </div>
+                <div class="match-team">
+                    <img src="https://flagcdn.com/w40/fr.png" alt="France">
+                    <span>FRA</span>
+                </div>
+            </div>
+            <div class="match-actions">
+                <a href="#" class="match-link"><i class="fas fa-camera"></i> Photos</a>
+                <a href="#" class="match-link"><i class="fas fa-video"></i> Video</a>
+                <a href="#" class="match-link"><i class="fas fa-info-circle"></i> More</a>
+            </div>
+            <div class="match-footer">
+                <p style="font-size: 0.85rem; color: var(--gray-color); margin-top: 15px;">
+                    All Matches displayed in Local Time
+                </p>
+                <a href="#" class="btn btn-outline" style="margin-top: 10px;">
+                    <i class="fas fa-list"></i> Other Matches
+                </a>
+            </div>
+        </div>
+    </section>
+
     <div class="main-content">
-        <!-- Left Column -->
+        <!-- Left Sidebar - Features Navigation -->
+        <aside class="left-sidebar">
+            <div class="sidebar-card">
+                <div class="sidebar-header">
+                    <h3><i class="fas fa-list"></i> News & Features</h3>
+                </div>
+                <div class="sidebar-content">
+                    <ul class="feature-links">
+                        <li><a href="#"><i class="fas fa-microphone"></i> Interviews</a></li>
+                        <li><a href="#"><i class="fas fa-camera"></i> Photo Zone</a></li>
+                        <li><a href="#"><i class="fas fa-futbol"></i> Matches & Results</a></li>
+                        <li><a href="#"><i class="fas fa-users"></i> Teams</a></li>
+                        <li><a href="#"><i class="fas fa-table"></i> Groups & Standings</a></li>
+                        <li><a href="#"><i class="fas fa-video"></i> Video</a></li>
+                        <li><a href="#"><i class="fas fa-chart-bar"></i> Statistics</a></li>
+                        <li><a href="#"><i class="fas fa-star"></i> Best Young Player</a></li>
+                        <li><a href="#"><i class="fas fa-trophy"></i> Fantasy Game</a></li>
+                        <li><a href="#"><i class="fas fa-ticket-alt"></i> Tickets</a></li>
+                        <li><a href="#"><i class="fas fa-hotel"></i> Accommodation</a></li>
+                        <li><a href="#"><i class="fas fa-shopping-bag"></i> Official Shop</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="sidebar-card">
+                <div class="sidebar-header">
+                    <h3><i class="fas fa-search"></i> Search</h3>
+                </div>
+                <div class="sidebar-content">
+                    <form class="search-form">
+                        <input type="text" placeholder="Search..." class="search-input">
+                        <button type="submit" class="btn btn-block">
+                            <i class="fas fa-search"></i> Go
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="sidebar-card">
+                <div class="sidebar-header">
+                    <h3><i class="fas fa-flag"></i> Select a Team</h3>
+                </div>
+                <div class="sidebar-content">
+                    <select class="team-selector">
+                        <option value="">Choose a team...</option>
+                        <option value="brazil">🇧🇷 Brazil</option>
+                        <option value="argentina">🇦🇷 Argentina</option>
+                        <option value="france">🇫🇷 France</option>
+                        <option value="germany">🇩🇪 Germany</option>
+                        <option value="spain">🇪🇸 Spain</option>
+                        <option value="england">🏴󠁧󠁢󠁥󠁮󠁧󠁿 England</option>
+                        <option value="usa">🇺🇸 USA</option>
+                        <option value="mexico">🇲🇽 Mexico</option>
+                        <option value="canada">🇨🇦 Canada</option>
+                    </select>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Column -->
         <div class="left-column">
             <!-- Content Sections Grid -->
             <div class="content-grid">
@@ -231,6 +336,56 @@
 
         <!-- Right Column - Sidebar -->
         <aside class="sidebar">
+            <!-- Goal Counter -->
+            <div class="sidebar-card goal-counter-card">
+                <div class="sidebar-header">
+                    <h3><i class="fas fa-futbol"></i> GOAL COUNTER</h3>
+                </div>
+                <div class="sidebar-content">
+                    <div class="goal-counter-display">
+                        <div class="goal-number">147</div>
+                        <div class="goal-label">Goals Scored</div>
+                    </div>
+                    <div class="latest-scorer">
+                        <div class="scorer-header">Latest Scorer</div>
+                        <div class="scorer-info">
+                            <div class="scorer-name">KLOSE Miroslav</div>
+                            <div class="scorer-match">
+                                <img src="https://flagcdn.com/w20/de.png" alt="Germany">
+                                GER vs ARG
+                            </div>
+                            <div class="scorer-time">Match 64</div>
+                        </div>
+                    </div>
+                    <div class="top-scorers">
+                        <div class="top-scorers-header">Top Scorers</div>
+                        <ul class="scorers-list">
+                            <li>
+                                <span class="scorer-rank">1.</span>
+                                <img src="https://flagcdn.com/w20/de.png" alt="Germany">
+                                <span class="scorer-name">KLOSE Miroslav</span>
+                                <span class="scorer-goals">5</span>
+                            </li>
+                            <li>
+                                <span class="scorer-rank">2.</span>
+                                <img src="https://flagcdn.com/w20/ar.png" alt="Argentina">
+                                <span class="scorer-name">CRESPO Hernan</span>
+                                <span class="scorer-goals">3</span>
+                            </li>
+                            <li>
+                                <span class="scorer-rank">3.</span>
+                                <img src="https://flagcdn.com/w20/br.png" alt="Brazil">
+                                <span class="scorer-name">RONALDO</span>
+                                <span class="scorer-goals">3</span>
+                            </li>
+                        </ul>
+                        <a href="#" class="btn btn-block btn-outline" style="margin-top: 15px;">
+                            <i class="fas fa-chart-line"></i> Full Stats
+                        </a>
+                    </div>
+                </div>
+            </div>
+
             <!-- Countdown Card -->
             <div class="sidebar-card">
                 <div class="sidebar-header">
@@ -259,6 +414,78 @@
                     <a href="#" class="btn btn-block btn-outline">
                         <i class="fas fa-bell"></i> Set Reminder
                     </a>
+                </div>
+            </div>
+
+            <!-- Video Highlights -->
+            <div class="sidebar-card">
+                <div class="sidebar-header">
+                    <h3><i class="fas fa-video"></i> Video Highlights</h3>
+                </div>
+                <div class="sidebar-content">
+                    <button class="btn btn-block" style="margin-bottom: 15px;">
+                        <i class="fas fa-play"></i> Watch Highlights!
+                    </button>
+                    <div class="video-thumbnails">
+                        <div class="video-thumb"></div>
+                        <div class="video-thumb"></div>
+                        <div class="video-thumb"></div>
+                        <div class="video-thumb"></div>
+                        <div class="video-thumb"></div>
+                    </div>
+                    <a href="#" class="btn btn-block btn-outline" style="margin-top: 15px;">
+                        <i class="fas fa-expand"></i> Full-screen Match Videos!
+                    </a>
+                </div>
+            </div>
+
+            <!-- My Teams -->
+            <div class="sidebar-card">
+                <div class="sidebar-header">
+                    <h3><i class="fas fa-heart"></i> My Teams</h3>
+                    <a href="#" class="edit-link">Edit</a>
+                </div>
+                <div class="sidebar-content">
+                    <p style="font-size: 0.9rem; color: var(--gray-color); margin-bottom: 10px;">
+                        Customise your home page by selecting your favourite teams from the 48 finalists.
+                    </p>
+                    <a href="#" class="btn btn-block btn-outline">
+                        <i class="fas fa-sign-in-alt"></i> Sign In
+                    </a>
+                </div>
+            </div>
+
+            <!-- Stadium Map -->
+            <div class="sidebar-card">
+                <div class="sidebar-header">
+                    <h3><i class="fas fa-map"></i> FIFA World Cup Stadia</h3>
+                </div>
+                <div class="sidebar-content">
+                    <div class="stadium-map">
+                        <div class="map-placeholder">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <p>Interactive Map</p>
+                            <p style="font-size: 0.8rem; color: var(--gray-color);">16 Host Cities</p>
+                        </div>
+                    </div>
+                    <ul class="stadium-list">
+                        <li><span class="stadium-number">1</span> New York</li>
+                        <li><span class="stadium-number">2</span> Los Angeles</li>
+                        <li><span class="stadium-number">3</span> Dallas</li>
+                        <li><span class="stadium-number">4</span> Miami</li>
+                        <li><span class="stadium-number">5</span> Atlanta</li>
+                        <li><span class="stadium-number">6</span> Boston</li>
+                        <li><span class="stadium-number">7</span> Philadelphia</li>
+                        <li><span class="stadium-number">8</span> Seattle</li>
+                        <li><span class="stadium-number">9</span> San Francisco</li>
+                        <li><span class="stadium-number">10</span> Kansas City</li>
+                        <li><span class="stadium-number">11</span> Houston</li>
+                        <li><span class="stadium-number">12</span> Mexico City</li>
+                        <li><span class="stadium-number">13</span> Guadalajara</li>
+                        <li><span class="stadium-number">14</span> Monterrey</li>
+                        <li><span class="stadium-number">15</span> Toronto</li>
+                        <li><span class="stadium-number">16</span> Vancouver</li>
+                    </ul>
                 </div>
             </div>
 
