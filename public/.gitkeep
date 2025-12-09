@@ -1,0 +1,2 @@
+# This file ensures the public directory is tracked by git
+# even if it contains only ignored files
