@@ -1,1 +1,0 @@
-cargo:rustc-env=MIME_TYPES_GENERATED_PATH=/home/ehsator/Documents/GitHub/fifa-world-cup/target/debug/build/mime_guess-fe9b1f2c2c5aa5a4/out/mime_types_generated.rs
