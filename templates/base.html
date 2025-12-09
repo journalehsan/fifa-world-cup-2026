@@ -72,19 +72,63 @@
                         <i class="fas fa-moon"></i>
                     </button>
 
-                    <div class="language-selector">
-                        <button class="language-btn">
-                            <i class="fas fa-globe"></i>
-                            <span>EN</span>
+                    <div class="user-profile">
+                        <button class="user-profile-btn">
+                            <div class="user-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <span class="user-name">Guest</span>
                             <i class="fas fa-chevron-down"></i>
                         </button>
-                        <div class="language-dropdown">
-                            <a href="#">🇺🇸 English</a>
-                            <a href="#">🇪🇸 Español</a>
-                            <a href="#">🇫🇷 Français</a>
-                            <a href="#">🇧🇷 Português</a>
-                            <a href="#">🇩🇪 Deutsch</a>
-                            <a href="#">🇸🇦 العربية</a>
+                        <div class="user-dropdown">
+                            <div class="user-dropdown-brand">
+                                <span>FIFA WORLD CUP™</span>
+                            </div>
+                            <div class="user-dropdown-header">
+                                <div class="user-header-content">
+                                    <div class="user-avatar-large">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div class="user-info">
+                                        <div class="user-status">Guest User</div>
+                                        <div class="user-action-text">Sign in to personalize</div>
+                                    </div>
+                                </div>
+                                <div class="user-dark-mode-toggle">
+                                    <button class="dark-mode-toggle-inline" 
+                                            @click="darkMode = !darkMode; localStorage.setItem('theme', darkMode ? 'dark' : 'light')" 
+                                            :class="{ 'active': darkMode }"
+                                            aria-label="Toggle dark mode">
+                                        <i class="fas fa-moon"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="user-dropdown-divider"></div>
+                            <a href="#" class="user-dropdown-link">
+                                <i class="fas fa-arrow-right"></i> Sign In
+                            </a>
+                            <a href="#" class="user-dropdown-link">
+                                <i class="fas fa-user-plus"></i> Create Account
+                            </a>
+                            <div class="user-dropdown-divider"></div>
+                            <div class="user-dropdown-section">
+                                <div class="user-dropdown-label">Language</div>
+                                <a href="#" class="user-dropdown-link">
+                                    <i class="fas fa-globe"></i> 🇺🇸 English
+                                </a>
+                                <a href="#" class="user-dropdown-link">
+                                    <i class="fas fa-globe"></i> 🇪🇸 Español
+                                </a>
+                                <a href="#" class="user-dropdown-link">
+                                    <i class="fas fa-globe"></i> 🇫🇷 Français
+                                </a>
+                                <a href="#" class="user-dropdown-link">
+                                    <i class="fas fa-globe"></i> 🇧🇷 Português
+                                </a>
+                                <a href="#" class="user-dropdown-link">
+                                    <i class="fas fa-globe"></i> 🇩🇪 Deutsch
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>

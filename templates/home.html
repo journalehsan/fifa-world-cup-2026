@@ -2,52 +2,6 @@
 
 {% block content %}
 <div class="container">
-    <!-- Featured Match Section -->
-    <section class="featured-match-section">
-        <div class="section-header">
-            <div class="section-title">
-                <h2><i class="fas fa-futbol"></i> Matches</h2>
-                <p>Presented by Official Partner</p>
-            </div>
-        </div>
-        <div class="match-tabs">
-            <button class="match-tab active">Final</button>
-            <button class="match-tab">Semi-Finals</button>
-            <button class="match-tab">Quarter-Finals</button>
-            <button class="match-tab">Round of 16</button>
-        </div>
-        <div class="match-card">
-            <div class="match-date">09 Jul 2006</div>
-            <div class="match-teams">
-                <div class="match-team">
-                    <img src="https://flagcdn.com/w40/it.png" alt="Italy">
-                    <span>ITA</span>
-                </div>
-                <div class="match-score">
-                    <span class="score">1:1</span>
-                    <span class="match-info">a.e.t (1:1, 1:1) 5:3 PSO</span>
-                </div>
-                <div class="match-team">
-                    <img src="https://flagcdn.com/w40/fr.png" alt="France">
-                    <span>FRA</span>
-                </div>
-            </div>
-            <div class="match-actions">
-                <a href="#" class="match-link"><i class="fas fa-camera"></i> Photos</a>
-                <a href="#" class="match-link"><i class="fas fa-video"></i> Video</a>
-                <a href="#" class="match-link"><i class="fas fa-info-circle"></i> More</a>
-            </div>
-            <div class="match-footer">
-                <p style="font-size: 0.85rem; color: var(--gray-color); margin-top: 15px;">
-                    All Matches displayed in Local Time
-                </p>
-                <a href="#" class="btn btn-outline" style="margin-top: 10px;">
-                    <i class="fas fa-list"></i> Other Matches
-                </a>
-            </div>
-        </div>
-    </section>
-
     <div class="main-content">
         <!-- Left Sidebar - Features Navigation -->
         <aside class="left-sidebar">
@@ -110,6 +64,50 @@
 
         <!-- Main Content Column -->
         <div class="left-column">
+            <!-- Featured Match Section -->
+            <section class="featured-match-section">
+                <div class="match-section-header">
+                    <div class="match-section-title">
+                        <h2><i class="fas fa-futbol"></i> MATCHES</h2>
+                        <p>Presented by Official Partner</p>
+                    </div>
+                </div>
+                <div class="match-tabs">
+                    <button class="match-tab active">Final</button>
+                    <button class="match-tab">Semi-Finals</button>
+                    <button class="match-tab">Quarter-Finals</button>
+                    <button class="match-tab">Round of 16</button>
+                </div>
+                <div class="match-card">
+                    <div class="match-date">09 Jul 2006</div>
+                    <div class="match-teams">
+                        <div class="match-team">
+                            <img src="https://flagcdn.com/w40/it.png" alt="Italy">
+                            <span>ITA</span>
+                        </div>
+                        <div class="match-score">
+                            <span class="score">1:1</span>
+                            <span class="match-info">a.e.t (1:1, 1:1) 5:3 PSO</span>
+                        </div>
+                        <div class="match-team">
+                            <img src="https://flagcdn.com/w40/fr.png" alt="France">
+                            <span>FRA</span>
+                        </div>
+                    </div>
+                    <div class="match-actions">
+                        <a href="#" class="match-link"><i class="fas fa-camera"></i> Photos</a>
+                        <a href="#" class="match-link"><i class="fas fa-video"></i> Video</a>
+                        <a href="#" class="match-link"><i class="fas fa-info-circle"></i> More</a>
+                    </div>
+                    <div class="match-footer">
+                        <p class="match-time-note">All Matches displayed in Local Time</p>
+                        <a href="#" class="btn btn-outline match-other-btn">
+                            <i class="fas fa-list"></i> Other Matches
+                        </a>
+                    </div>
+                </div>
+            </section>
+
             <!-- Content Sections Grid -->
             <div class="content-grid">
                 <!-- News Section -->
@@ -696,27 +694,37 @@
 
     <div class="stats-preview">
         <div class="stat-card">
-            <div class="stat-icon"><i class="fas fa-users"></i></div>
+            <div class="stat-icon-wrapper">
+                <div class="stat-icon"><i class="fas fa-users"></i></div>
+            </div>
             <div class="stat-number">48</div>
             <div class="stat-label">Participating Teams</div>
         </div>
         <div class="stat-card">
-            <div class="stat-icon"><i class="fas fa-futbol"></i></div>
+            <div class="stat-icon-wrapper">
+                <div class="stat-icon"><i class="fas fa-futbol"></i></div>
+            </div>
             <div class="stat-number">104</div>
             <div class="stat-label">Total Matches</div>
         </div>
         <div class="stat-card">
-            <div class="stat-icon"><i class="fas fa-stadium"></i></div>
+            <div class="stat-icon-wrapper">
+                <div class="stat-icon"><i class="fas fa-stadium"></i></div>
+            </div>
             <div class="stat-number">16</div>
             <div class="stat-label">Host Stadiums</div>
         </div>
         <div class="stat-card">
-            <div class="stat-icon"><i class="fas fa-calendar"></i></div>
+            <div class="stat-icon-wrapper">
+                <div class="stat-icon"><i class="fas fa-calendar"></i></div>
+            </div>
             <div class="stat-number">39</div>
             <div class="stat-label">Tournament Days</div>
         </div>
         <div class="stat-card">
-            <div class="stat-icon"><i class="fas fa-globe-americas"></i></div>
+            <div class="stat-icon-wrapper">
+                <div class="stat-icon"><i class="fas fa-globe-americas"></i></div>
+            </div>
             <div class="stat-number">3</div>
             <div class="stat-label">Host Countries</div>
         </div>
