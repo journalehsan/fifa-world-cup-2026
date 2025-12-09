@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/main.css">
+
+</head>
+<body x-data="{ darkMode: localStorage.getItem('theme') === 'dark' }" :class="{ 'dark-mode': darkMode }">
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <i class="fas fa-bullhorn"></i>
+        World Cup 2026 tickets go on sale soon!
+        <a href="#">Learn More <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo-container">
+                    <a href="/" class="logo">
+                        <i class="fas fa-futbol"></i>
+                        <div class="logo-text">
+                            <div class="logo-main">WORLD CUP HUB</div>
+                            <div class="logo-sub">2026 • USA • CAN • MEX</div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="controls">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search...">
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+
+                    <button class="theme-toggle" @click="darkMode = !darkMode; localStorage.setItem('theme', darkMode ? 'dark' : 'light')" aria-label="Toggle dark mode">
+                        <i class="fas fa-sun"></i>
+                        <i class="fas fa-moon"></i>
+                    </button>
+
+                    <div class="language-selector">
+                        <button class="language-btn">
+                            <i class="fas fa-globe"></i>
+                            <span>EN</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="language-dropdown">
+                            <a href="#">🇺🇸 English</a>
+                            <a href="#">🇪🇸 Español</a>
+                            <a href="#">🇫🇷 Français</a>
+                            <a href="#">🇧🇷 Português</a>
+                            <a href="#">🇩🇪 Deutsch</a>
+                            <a href="#">🇸🇦 العربية</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="header-content">
+                <h1>FIFA WORLD CUP 2026</h1>
+                <p>Your ultimate destination for news, teams, players, match schedules, venues, history, and everything about the biggest football tournament across North America.</p>
+
+                <div class="header-cta">
+                    <a href="#" class="btn-hero btn-primary-hero">
+                        <i class="fas fa-calendar-alt"></i> View Schedule
+                    </a>
+                    <a href="#" class="btn-hero btn-secondary-hero">
+                        <i class="fas fa-users"></i> Explore Teams
+                    </a>
+                </div>
+
+                <div class="user-stats">
+                    <div class="user-stat">
+                        <div class="user-stat-number">48</div>
+                        <div class="user-stat-label">Teams</div>
+                    </div>
+                    <div class="user-stat">
+                        <div class="user-stat-number">16</div>
+                        <div class="user-stat-label">Host Cities</div>
+                    </div>
+                    <div class="user-stat">
+                        <div class="user-stat-number">104</div>
+                        <div class="user-stat-label">Matches</div>
+                    </div>
+                    <div class="user-stat">
+                        <div class="user-stat-number">3</div>
+                        <div class="user-stat-label">Countries</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <button class="mobile-menu-btn" x-data @click="$dispatch('open-mobile-menu')" aria-label="Open menu">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-links">
+                <li><a href="/" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#"><i class="fas fa-newspaper"></i> News <span class="nav-badge">New</span></a></li>
+                <li><a href="#"><i class="fas fa-file-alt"></i> Articles</a></li>
+                <li><a href="#"><i class="fas fa-users"></i> Teams</a></li>
+                <li><a href="#"><i class="fas fa-running"></i> Players</a></li>
+                <li><a href="#"><i class="fas fa-calendar"></i> Schedule</a></li>
+                <li><a href="#"><i class="fas fa-map-marker-alt"></i> Venues</a></li>
+                <li><a href="#"><i class="fas fa-book"></i> Wiki</a></li>
+                <li><a href="#"><i class="fas fa-chart-bar"></i> Stats</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" x-data="{ open: false }" @open-mobile-menu.window="open = true" :class="{ 'active': open }">
+        <div class="mobile-menu-header">
+            <div class="logo">
+                <i class="fas fa-futbol"></i>
+                <span>WC 2026</span>
+            </div>
+            <button class="mobile-menu-close" @click="open = false">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="mobile-nav-links">
+            <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#"><i class="fas fa-newspaper"></i> News</a></li>
+            <li><a href="#"><i class="fas fa-file-alt"></i> Articles</a></li>
+            <li><a href="#"><i class="fas fa-users"></i> Teams</a></li>
+            <li><a href="#"><i class="fas fa-running"></i> Players</a></li>
+            <li><a href="#"><i class="fas fa-calendar"></i> Match Schedule</a></li>
+            <li><a href="#"><i class="fas fa-map-marker-alt"></i> Venues & Cities</a></li>
+            <li><a href="#"><i class="fas fa-book"></i> World Cup Wiki</a></li>
+            <li><a href="#"><i class="fas fa-chart-bar"></i> Statistics</a></li>
+            <li><a href="#"><i class="fas fa-video"></i> Videos</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    {% block content %}{% endblock %}
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column footer-about">
+                    <h3>About World Cup Hub</h3>
+                    <p>Your comprehensive source for everything FIFA World Cup 2026. We provide the latest news, team information, player stats, match schedules, and historical data for football fans worldwide.</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="/"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> News</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Teams</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Players</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Schedule</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Venues</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> World Cup Wiki</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Statistics</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Past Tournaments</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Ticket Information</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Travel Guide</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links footer-contact">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>contact@worldcuphub.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>New York, NY, USA</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>24/7 Coverage</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="copyright">
+                    &copy; 2024 World Cup Hub. All rights reserved. Not affiliated with FIFA.
+                </p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" x-data="{ visible: false }" 
+            x-init="window.addEventListener('scroll', () => { visible = window.pageYOffset > 300 })"
+            :class="{ 'visible': visible }" 
+            @click="window.scrollTo({ top: 0, behavior: 'smooth' })" 
+            aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="/assets/main.js"></script>
+</body>
+</html>

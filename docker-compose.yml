@@ -1,0 +1,31 @@
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: worldcup_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: worldcup_db
+      POSTGRES_USER: worldcup_user
+      POSTGRES_PASSWORD: worldcup_pass
+      POSTGRES_INITDB_ARGS: "--encoding=UTF-8 --lc-collate=C --lc-ctype=C"
+    ports:
+      - "5432:5432"
+    volumes:
+      - worldcup_pgdata:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    networks:
+      - worldcup_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U worldcup_user -d worldcup_db"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+volumes:
+  worldcup_pgdata:
+    driver: local
+
+networks:
+  worldcup_network:
+    driver: bridge
