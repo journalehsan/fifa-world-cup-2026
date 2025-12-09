@@ -1,0 +1,284 @@
+{% extends "base.html" %}
+
+{% block title %}2026 World Cup – Format, Venues & More{% endblock %}
+
+{% block content %}
+<div x-data="{ section: 'format' }" class="max-w-6xl mx-auto px-4 py-8 space-y-8">
+
+  <!-- Header -->
+  <header class="space-y-2">
+    <p class="text-xs uppercase tracking-wide text-slate-500">Tournament details</p>
+    <h1 class="text-3xl font-bold text-slate-900">
+      2026 FIFA World Cup – Format, Venues & Off-pitch info
+    </h1>
+    <p class="text-sm text-slate-600 max-w-3xl">
+      A deeper look at how the expanded 48-team World Cup works, where matches
+      will be played, and the branding, mascots, tickets and controversies
+      around the tournament.
+    </p>
+  </header>
+
+  <!-- Tabs / Section nav -->
+  <nav class="border-b border-slate-200">
+    <ul class="flex flex-wrap gap-3 text-xs font-medium">
+      <li>
+        <button @click="section = 'format'"
+                :class="section === 'format'
+                  ? 'border-b-2 border-blue-600 text-blue-700'
+                  : 'text-slate-500'"
+                class="pb-2">
+          Format & expansion
+        </button>
+      </li>
+      <li>
+        <button @click="section = 'venues'"
+                :class="section === 'venues'
+                  ? 'border-b-2 border-blue-600 text-blue-700'
+                  : 'text-slate-500'"
+                class="pb-2">
+          Host cities & venues
+        </button>
+      </li>
+      <li>
+        <button @click="section = 'branding'"
+                :class="section === 'branding'
+                  ? 'border-b-2 border-blue-600 text-blue-700'
+                  : 'text-slate-500'"
+                class="pb-2">
+          Branding & mascots
+        </button>
+      </li>
+      <li>
+        <button @click="section = 'tickets'"
+                :class="section === 'tickets'
+                  ? 'border-b-2 border-blue-600 text-blue-700'
+                  : 'text-slate-500'"
+                class="pb-2">
+          Tickets & merchandise
+        </button>
+      </li>
+      <li>
+        <button @click="section = 'controversies'"
+                :class="section === 'controversies'
+                  ? 'border-b-2 border-red-500 text-red-600'
+                  : 'text-slate-500'"
+                class="pb-2">
+          Controversies
+        </button>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- FORMAT -->
+  <section x-show="section === 'format'" x-cloak class="space-y-6">
+    <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+      <h2 class="text-xl font-semibold text-slate-900 mb-2">Format & expansion</h2>
+      <p class="text-sm text-slate-700 leading-relaxed">
+        Starting in 2026, the World Cup expands from <strong>32 to 48 teams</strong>.
+        Teams are divided into <strong>12 groups of four</strong>. The top two in each
+        group, plus the <strong>eight best third-placed teams</strong>, advance to a new
+        <strong>round of 32</strong>. This is the first major format change since 1998.
+      </p>
+      <p class="mt-2 text-sm text-slate-700">
+        The total number of matches rises from <strong>64 to 104</strong>, and the
+        tournament length increases to <strong>39 days</strong>. Teams reaching the
+        final four will play <strong>eight matches</strong> instead of seven, but each
+        team still plays three group-stage games.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-5 text-sm">
+      <div class="rounded-xl border border-slate-200 bg-white p-4">
+        <h3 class="font-semibold text-slate-900 mb-1">Slot allocation & qualifiers</h3>
+        <ul class="list-disc list-inside space-y-1 text-slate-700">
+          <li>Hosts Canada, Mexico and the United States automatically qualified.</li>
+          <li>All six confederations now have at least one guaranteed spot.</li>
+          <li>For the first time, <strong>OFC</strong> has a guaranteed berth.</li>
+          <li>An inter-confederation playoff with six teams decides the final two spots.</li>
+          <li>Debutants: Cape Verde, Curaçao, Jordan, Uzbekistan.</li>
+        </ul>
+      </div>
+
+      <div class="rounded-xl border border-slate-200 bg-white p-4">
+        <h3 class="font-semibold text-slate-900 mb-1">Draw & seeding overview</h3>
+        <p class="text-slate-700">
+          The final draw took place on <strong>December 5, 2025</strong>, at the
+          Kennedy Center in Washington, D.C. The 48 teams were divided into
+          four pots of 12 based on the November 2025 FIFA rankings, with
+          hosts pre-allocated:
+        </p>
+        <ul class="list-disc list-inside mt-2 space-y-1 text-slate-700">
+          <li>Mexico in Group A, opening match vs South Africa at Estadio Azteca.</li>
+          <li>Canada in Group B, opening in Toronto.</li>
+          <li>United States in Group D, opening in Inglewood.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- VENUES -->
+  <section x-show="section === 'venues'" x-cloak class="space-y-6">
+    <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+      <h2 class="text-xl font-semibold text-slate-900 mb-2">Host cities & venues</h2>
+      <p class="text-sm text-slate-700">
+        The tournament will be played in <strong>16 cities</strong> across
+        <strong>Canada, Mexico and the United States</strong>. Stadiums are grouped
+        into Western, Central and Eastern regions to reduce long-haul travel.
+        Several NFL and CFL stadiums will temporarily switch to natural grass.
+      </p>
+    </div>
+
+    <!-- Quick region grid -->
+    <div class="grid md:grid-cols-3 gap-5 text-sm">
+      <div class="rounded-xl border border-slate-200 bg-white p-4">
+        <h3 class="font-semibold text-slate-900 mb-1">Western region</h3>
+        <ul class="list-disc list-inside space-y-1 text-slate-700">
+          <li>Los Angeles – SoFi Stadium</li>
+          <li>San Francisco Bay Area – Levi's Stadium</li>
+          <li>Seattle – Lumen Field</li>
+          <li>Vancouver – BC Place</li>
+        </ul>
+      </div>
+      <div class="rounded-xl border border-slate-200 bg-white p-4">
+        <h3 class="font-semibold text-slate-900 mb-1">Central region</h3>
+        <ul class="list-disc list-inside space-y-1 text-slate-700">
+          <li>Dallas – AT&T Stadium</li>
+          <li>Houston – NRG Stadium</li>
+          <li>Kansas City – GEHA Field at Arrowhead</li>
+          <li>Guadalajara – Estadio Akron</li>
+          <li>Mexico City – Estadio Azteca</li>
+          <li>Monterrey – Estadio BBVA</li>
+        </ul>
+      </div>
+      <div class="rounded-xl border border-slate-200 bg-white p-4">
+        <h3 class="font-semibold text-slate-900 mb-1">Eastern region</h3>
+        <ul class="list-disc list-inside space-y-1 text-slate-700">
+          <li>Atlanta – Mercedes-Benz Stadium</li>
+          <li>Boston – Gillette Stadium</li>
+          <li>Miami – Hard Rock Stadium</li>
+          <li>New York/New Jersey – MetLife Stadium (final)</li>
+          <li>Philadelphia – Lincoln Financial Field</li>
+          <li>Toronto – BMO Field</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="text-xs text-slate-500">
+      Note: AT&T Stadium in Arlington will host the most matches (nine).
+      MetLife Stadium will host the final. Estadio Azteca becomes the first
+      venue to host three men's World Cups (1970, 1986, 2026).
+    </p>
+  </section>
+
+  <!-- BRANDING & MASCOTS -->
+  <section x-show="section === 'branding'" x-cloak class="space-y-6">
+    <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+      <h2 class="text-xl font-semibold text-slate-900 mb-2">Branding, mascots & match ball</h2>
+      <p class="text-sm text-slate-700">
+        The official brand, unveiled in 2023, features a stacked "26" with a
+        photo of the World Cup trophy — the first time the real trophy image is
+        used in a World Cup emblem. Each host city also has its own custom
+        version reflecting local colors and culture.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-5 text-sm">
+      <div class="rounded-xl border border-slate-200 bg-white p-4">
+        <h3 class="font-semibold text-slate-900 mb-1">Mascots</h3>
+        <p class="text-slate-700">
+          The 2026 World Cup has three official mascots:
+        </p>
+        <ul class="list-disc list-inside mt-2 space-y-1 text-slate-700">
+          <li><strong>Maple</strong> – a moose, representing Canada.</li>
+          <li><strong>Zayu</strong> – a jaguar, representing Mexico.</li>
+          <li><strong>Clutch</strong> – a bald eagle, representing the U.S.</li>
+        </ul>
+      </div>
+
+      <div class="rounded-xl border border-slate-200 bg-white p-4">
+        <h3 class="font-semibold text-slate-900 mb-1">Match ball – Adidas Trionda</h3>
+        <p class="text-slate-700">
+          The official ball, <strong>Adidas Trionda</strong>, uses red, green and blue
+          panels symbolizing the three host nations, connected by a flowing
+          white shape ("tri + onda"). It incorporates a maple leaf, a golden
+          eagle and a five-pointed star as national symbols.
+        </p>
+      </div>
+
+      <div class="rounded-xl border border-slate-200 bg-white p-4">
+        <h3 class="font-semibold text-slate-900 mb-1">Music & theme song</h3>
+        <p class="text-slate-700">
+          The official theme is an instrumental track titled
+          <strong>"FIFA World Cup 26 Theme Song"</strong>. In 2025, 16 remixes were
+          released, each produced by artists connected to a host city (for
+          example DJ Jazzy Jeff for Philadelphia and Tech N9ne for Kansas City).
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKETS -->
+  <section x-show="section === 'tickets'" x-cloak class="space-y-6">
+    <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+      <h2 class="text-xl font-semibold text-slate-900 mb-2">Tickets & hospitality</h2>
+      <p class="text-sm text-slate-700">
+        Ticket prices for the 2026 World Cup start around
+        <strong>$60 for group stage matches</strong> and can exceed
+        <strong>$6,700 for the final</strong>, a significant increase compared to 2022.
+        For the first time, FIFA is using <strong>dynamic pricing</strong>, so prices
+        can move up or down depending on demand.
+      </p>
+      <ul class="mt-3 list-disc list-inside text-sm text-slate-700 space-y-1">
+        <li>Sales phased in multiple windows (including Visa-only priority phases).</li>
+        <li>Maximum of four tickets per person per match.</li>
+        <li>Maximum of 40 tickets per person across the whole tournament.</li>
+        <li>FIFA plans an official resale platform for fans.</li>
+      </ul>
+    </div>
+
+    <div class="rounded-xl border border-slate-200 bg-slate-50 p-4 text-xs text-slate-700">
+      <strong>Note:</strong> This is an unofficial fan site. Always check the
+      official FIFA ticketing platform for real prices, dates and availability.
+    </div>
+  </section>
+
+  <!-- CONTROVERSIES -->
+  <section x-show="section === 'controversies'" x-cloak class="space-y-6">
+    <div class="rounded-2xl border border-red-100 bg-red-50 p-5 shadow-sm">
+      <h2 class="text-xl font-semibold text-red-900 mb-2">Controversies & concerns</h2>
+      <p class="text-sm text-red-900">
+        Like recent World Cups, the 2026 edition has raised questions around
+        climate, labor and human rights. This site summarizes what has been
+        reported; it is not an official FIFA position.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-5 text-sm">
+      <div class="rounded-xl border border-slate-200 bg-white p-4">
+        <h3 class="font-semibold text-slate-900 mb-1">Climate & heat</h3>
+        <ul class="list-disc list-inside space-y-1 text-slate-700">
+          <li>Researchers warn about high summer wet-bulb temperatures in several host cities.</li>
+          <li>Concerns over increased air travel between 16 cities and overall carbon footprint.</li>
+          <li>FIFA has introduced mandatory <strong>three-minute hydration breaks</strong> per half, which can also be used for commercials.</li>
+        </ul>
+      </div>
+
+      <div class="rounded-xl border border-slate-200 bg-white p-4">
+        <h3 class="font-semibold text-slate-900 mb-1">Labor & human rights</h3>
+        <ul class="list-disc list-inside space-y-1 text-slate-700">
+          <li>Union groups raised concerns about working conditions at Mexico's Estadio Azteca renovations.</li>
+          <li>Human rights organizations have called on FIFA and host governments to safeguard protest rights, media freedom and LGBTQ+ rights.</li>
+          <li>U.S. immigration and travel-ban policies have triggered debate about fan access from some countries.</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="text-xs text-slate-500">
+      This section is a neutral summary of reported issues from the Wikipedia
+      article you provided. For detailed sources and updates, see official
+      reports and news outlets.
+    </p>
+  </section>
+
+</div>
+{% endblock %}

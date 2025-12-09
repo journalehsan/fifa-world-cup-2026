@@ -1,0 +1,199 @@
+{% extends "base.html" %}
+
+{% block title %}{{ tournament.name }} – Tournament Overview{% endblock %}
+
+{% block content %}
+<div x-data="{ view: 'groups' }" class="max-w-7xl mx-auto px-4 py-8 space-y-8">
+
+  <!-- Hero / Header -->
+  <section class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+    <div>
+      <p class="text-sm uppercase tracking-wide text-slate-500">Unofficial fan site</p>
+      <h1 class="text-3xl md:text-4xl font-bold text-slate-900">
+        {{ tournament.name }}
+      </h1>
+      <p class="mt-2 text-lg text-slate-600">
+        {{ tournament.slogan }} – hosted by
+        {% for host in tournament.hosts %}
+          {% if !loop.first %}, {% endif %}{{ host }}
+        {% endfor %}
+        from
+        {{ tournament.start_date.format("%B %e, %Y") }}
+        to
+        {{ tournament.end_date.format("%B %e, %Y") }}.
+      </p>
+    </div>
+
+    <!-- Key stats -->
+    <div class="grid grid-cols-2 gap-4 md:w-72">
+      <div class="rounded-xl border border-slate-200 p-3 text-center">
+        <div class="text-xs uppercase text-slate-500">Teams</div>
+        <div class="text-2xl font-semibold">{{ tournament.teams_count }}</div>
+      </div>
+      <div class="rounded-xl border border-slate-200 p-3 text-center">
+        <div class="text-xs uppercase text-slate-500">Confederations</div>
+        <div class="text-2xl font-semibold">{{ tournament.confed_count }}</div>
+      </div>
+      <div class="rounded-xl border border-slate-200 p-3 text-center">
+        <div class="text-xs uppercase text-slate-500">Venues</div>
+        <div class="text-2xl font-semibold">{{ tournament.venues_count }}</div>
+      </div>
+      <div class="rounded-xl border border-slate-200 p-3 text-center">
+        <div class="text-xs uppercase text-slate-500">Host cities</div>
+        <div class="text-2xl font-semibold">{{ tournament.host_cities_count }}</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick meta -->
+  <section class="grid md:grid-cols-3 gap-6">
+    <div class="md:col-span-2 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+      <h2 class="text-xl font-semibold text-slate-900 mb-2">Tournament overview</h2>
+      <p class="text-sm text-slate-700 leading-relaxed">
+        The {{ tournament.name }} will be the first World Cup with
+        <strong>48 teams</strong> in <strong>12 groups of four</strong>, with an expanded
+        <strong>round of 32</strong> knockout stage. It is also the first men's World Cup
+        co-hosted by three countries: Canada, Mexico, and the United States.
+      </p>
+      <p class="mt-2 text-sm text-slate-700">
+        Group matches run from <strong>June 11–27, 2026</strong>, followed by a
+        five-round knockout stage from the round of 32 to the final on
+        <strong>July 19, 2026</strong> at MetLife Stadium in East Rutherford, New Jersey.
+      </p>
+    </div>
+
+    <div class="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
+      <h3 class="font-semibold mb-1">Hosts & defending champions</h3>
+      <ul class="list-disc list-inside space-y-1">
+        <li><strong>Hosts:</strong> Canada, Mexico, United States</li>
+        <li><strong>Defending champions:</strong> Argentina</li>
+        <li><strong>Debutants:</strong> Cape Verde, Curaçao, Jordan, Uzbekistan</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- View toggle -->
+  <section class="flex items-center justify-between gap-4">
+    <h2 class="text-xl font-semibold text-slate-900">Tournament data</h2>
+    <div class="inline-flex rounded-full border border-slate-200 bg-slate-50 p-1 text-xs font-medium">
+      <button
+        type="button"
+        @click="view = 'groups'"
+        :class="view === 'groups'
+          ? 'bg-white shadow-sm text-slate-900'
+          : 'text-slate-500'"
+        class="px-3 py-1 rounded-full transition"
+      >
+        Groups & teams
+      </button>
+      <button
+        type="button"
+        @click="view = 'schedule'"
+        :class="view === 'schedule'
+          ? 'bg-white shadow-sm text-slate-900'
+          : 'text-slate-500'"
+        class="px-3 py-1 rounded-full transition"
+      >
+        Schedule by round
+      </button>
+    </div>
+  </section>
+
+  <!-- Groups -->
+  <section x-show="view === 'groups'" x-cloak class="grid md:grid-cols-3 gap-5">
+    {% for group in groups %}
+      <article class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm flex flex-col gap-3">
+        <header class="flex items-center justify-between">
+          <div>
+            <h3 class="text-lg font-semibold text-slate-900">
+              Group {{ group.name }}
+            </h3>
+            <p class="text-xs text-slate-500">
+              First match: {{ group.first_match_date.format("%B %e, %Y") }}
+            </p>
+          </div>
+          {% if group.note.is_some() %}
+            <span class="inline-flex items-center rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-medium text-emerald-700">
+              {{ group.note.as_ref().unwrap() }}
+            </span>
+          {% endif %}
+        </header>
+
+        <ul class="divide-y divide-slate-100 text-sm">
+          {% for team in group.teams %}
+            <li class="flex items-center justify-between py-2">
+              <div class="flex items-center gap-2">
+                <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-100 text-[11px] font-semibold text-slate-700">
+                  {{ team.code }}
+                </span>
+                <span class="font-medium text-slate-800">{{ team.name }}</span>
+              </div>
+              <div class="flex gap-1 text-[10px]">
+                {% if team.is_host %}
+                  <span class="rounded-full bg-blue-50 px-2 py-0.5 font-semibold text-blue-700">
+                    Host
+                  </span>
+                {% endif %}
+                {% if team.is_debut %}
+                  <span class="rounded-full bg-emerald-50 px-2 py-0.5 font-semibold text-emerald-700">
+                    Debut
+                  </span>
+                {% endif %}
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+
+        <footer class="mt-1 text-[11px] text-slate-500">
+          Top two teams qualify automatically; eight best third-placed teams
+          across all groups also advance to the round of 32.
+        </footer>
+      </article>
+    {% endfor %}
+  </section>
+
+  <!-- Schedule by round -->
+  <section x-show="view === 'schedule'" x-cloak class="grid md:grid-cols-2 gap-5">
+    {% for round in rounds %}
+      <article class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+        <h3 class="text-sm font-semibold text-slate-900">
+          {{ round.round_name }}
+        </h3>
+        <p class="mt-1 text-xs text-slate-600">
+          {{ round.date_range }}
+        </p>
+        {% if round.round_name.starts_with("Group stage") %}
+          <p class="mt-2 text-xs text-slate-500">
+            Each team plays three group matches. Groups A–L are spread across
+            Canada, Mexico and the United States, with each host playing its
+            entire group stage in its home country.
+          </p>
+        {% else if round.round_name == "Round of 32" %}
+          <p class="mt-2 text-xs text-slate-500">
+            The top two teams from each group plus the eight best third-placed
+            teams advance to a new round of 32.
+          </p>
+        {% else if round.round_name == "Final" %}
+          <p class="mt-2 text-xs text-slate-500">
+            The final will be played on July 19, 2026 at MetLife Stadium in
+            East Rutherford, New Jersey.
+          </p>
+        {% endif %}
+      </article>
+    {% endfor %}
+  </section>
+
+  <!-- CTA to details pages -->
+  <section class="mt-4 flex flex-wrap gap-3 text-sm">
+    <a href="/venues" class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 hover:bg-slate-50">
+      <span>View host cities & venues</span>
+      <span class="text-slate-400">→</span>
+    </a>
+    <a href="/worldcup-2026-info" class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 hover:bg-slate-50">
+      <span>More about format, mascots & tickets</span>
+      <span class="text-slate-400">→</span>
+    </a>
+  </section>
+
+</div>
+{% endblock %}
