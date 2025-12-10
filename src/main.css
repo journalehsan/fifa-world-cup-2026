@@ -697,6 +697,7 @@ header::before {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: var(--transition);
   width: 100%;
+  overflow: visible;
 }
 
 .nav-wrapper {
@@ -707,6 +708,7 @@ header::before {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .nav-links {
@@ -777,10 +779,10 @@ header::before {
 
 /* Mega Menu */
 .mega-menu {
-  position: fixed;
-  top: auto;
-  left: 0;
-  right: 0;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
   width: 100vw;
   background: var(--white);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
